@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>李品呈 · 个人主页</title>
+  <meta name="description" content="李品呈的个人主页，课程实验作品：使用 HTML5 播放实验录屏。">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home"><span class="prompt">~</span>李品呈<span class="cursor" aria-hidden="true"></span></a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#home">首页</a>
+        <a href="#video">实验视频</a>
+        <a href="#about">关于</a>
+      </nav>
+      <a class="nav-cta" href="#video">播放视频</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ========== 首屏：图片展示 ========== -->
+    <section class="hero" id="home">
+      <p class="eyebrow">guest@linux:~$ whoami</p>
+      <h1>李品呈</h1>
+      <p class="role">计算机科学与技术 · 252 班</p>
+
+      <figure class="showcase">
+        <button class="showcase-frame" type="button" id="showcase" aria-label="放大查看图片">
+          <img src="img/showcase.png" alt="图片展示" width="1260" height="951">
+          <span class="showcase-zoom" aria-hidden="true">点击查看大图</span>
+        </button>
+        <figcaption class="showcase-meta">
+          <span>01 / GALLERY · 图片展示</span>
+          <span>1260 × 951</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ========== 视频 ========== -->
+    <section class="section" id="video">
+      <div class="section-head reveal">
+        <span class="section-index">02 / VIDEO</span>
+        <h2>实验视频</h2>
+        <p>课程实验的完整操作录屏，总长约 13 分钟，支持拖动进度条与倍速播放（线上为 720p 压缩版，原始 1080p 文件在项目压缩包内）。</p>
+      </div>
+
+      <figure class="player-card reveal">
+        <div class="player" id="player">
+          <!-- 视频源：项目根目录下的 MP4 文件（从 code/ 往上一层） -->
+          <video id="player-video" controls preload="metadata" playsinline
+                 src="video/demo-720p.mp4">
+            你的浏览器不支持 HTML5 视频，请更换浏览器，或直接打开项目根目录下的 MP4 文件。
+          </video>
+
+          <div class="poster" id="poster" role="button" tabindex="0" aria-label="播放视频">
+            <span class="play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
+            </span>
+            <span class="poster-label" id="poster-label">正在加载视频…</span>
+            <span class="poster-hint" id="poster-hint">1920×1080 · MP4 / H.264</span>
+          </div>
+        </div>
+
+        <figcaption class="player-meta">
+          <div>
+            <h3>课程实验 · 操作演示</h3>
+            <p class="meta-line" id="meta-line">1920×1080 · H.264 · AAC</p>
+          </div>
+          <div class="speeds" role="group" aria-label="播放速度">
+            <button type="button" data-rate="1" class="is-active">1×</button>
+            <button type="button" data-rate="1.25">1.25×</button>
+            <button type="button" data-rate="1.5">1.5×</button>
+            <button type="button" data-rate="2">2×</button>
+          </div>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ========== 关于 ========== -->
+    <section class="section" id="about">
+      <div class="section-head reveal">
+        <span class="section-index">03 / ABOUT</span>
+        <h2>关于我</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>我目前在学习计算机科学与技术，对 Web 开发、Linux 系统和开源工具比较感兴趣，习惯把学过的东西亲手做一遍。</p>
+          <p>这个页面只用了 HTML、CSS 和原生 JavaScript；视频通过 HTML5 的 <code>&lt;video&gt;</code> 标签直接播放项目根目录下的 MP4 文件，服务器部分是一个几十行的 Node.js 静态文件服务，支持 HTTP Range 请求，方便拖动进度条。</p>
+        </div>
+        <dl class="info-card reveal">
+          <div><dt>专业</dt><dd>计算机科学与技术</dd></div>
+          <div><dt>班级</dt><dd>252 班</dd></div>
+          <div><dt>学号</dt><dd>202502010243</dd></div>
+          <div><dt>方向</dt><dd>Web 开发 / Linux</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span id="year">2026</span> 李品呈 · 课程实验作品</p>
+      <p class="mono">HTML + CSS + JS · 无第三方库</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="关闭大图">×</button>
+    <img id="lightbox-img" src="img/showcase.png" alt="图片大图">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
